@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {selectTodoById, todoToggled}from "../../../redux/todoSlice"
+import {selectTodoById, todoDeleted, todoToggled}from "../../../redux/todoSlice"
 
 const TodoItem = ({id}) => {
   
@@ -15,9 +15,10 @@ const TodoItem = ({id}) => {
     }
 
     // Delete
-    // const handleDeleteBoxClick =()=>{
-    //     dispatch (deleteTodo(todo.id))
-    // }
+    const onDelete = () => {
+        dispatch(todoDeleted(todo.id))
+    }
+    
 
 
     return (
@@ -28,9 +29,8 @@ const TodoItem = ({id}) => {
               onChange={handleCompletedChanged}
               />
             <label>{text}</label>
-            <button className="destroy"></button>
+            <button className="destroy" onClick={onDelete}></button>
         </div>
-        <input className="edit" />
     </li>
    
     );

@@ -21,7 +21,7 @@ export const todoSlice = createSlice({
           const todo = state.entities[todoId];
           todo.completed = !todo.completed;
         },
-        deleteTodo: (state, action) => {
+        todoDeleted: (state, action) => {
             delete state.entities[action.payload]
         },
         allTodoCompleted(state,action){
@@ -41,7 +41,7 @@ export const todoSlice = createSlice({
 });
 
 export const {
-   addTodo,toggleTodoStatus,deleteTodo,allTodoCompleted,completedTodosCleared,todoToggled
+   addTodo,toggleTodoStatus,todoDeleted,allTodoCompleted,completedTodosCleared,todoToggled
 } = todoSlice.actions;
 export default todoSlice.reducer
 
